@@ -43,8 +43,13 @@
           Poneglyph
         </h1>
 
+        <p class="text-xs w-64 pt-3 pb-9">
+          Turn your magic numbers into clickable links that you can open, or
+          copy to share.
+        </p>
+
         <!--  -->
-        <div class="py-6 space-y-10">
+        <div class="space-y-5">
           <div>
             <input
               type="text"
@@ -224,7 +229,7 @@
 
   <!-- display components here -->
   <section class="bg-base-100">
-    <div class="container mx-auto p-3 pb-6">
+    <div class="container mx-auto p-3">
       <div class="flex flex-col gap-3">
         <VdisplayOption
           link-title="nHentai"
