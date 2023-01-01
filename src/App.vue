@@ -3,7 +3,8 @@
   import VdisplayOption from './components/VdisplayOption.vue'
 
   // utils
-  import { ref } from 'vue'
+  import { ref, onMounted } from 'vue'
+  import randomanime from 'random-anime'
 
   const numberCode = ref('')
 
@@ -21,26 +22,49 @@
     rule34: false,
     getchu: false,
   })
+
+  /**
+   * add the bg image on mount
+   */
+  onMounted(() => {
+    const hero = document.querySelector('#hero-screen')
+    hero.style.backgroundImage = `url(${randomanime.anime()})`
+  })
 </script>
 
 <template>
-  <div class="hero min-h-screen bg-base-100">
+  <div class="hero min-h-screen bg-base-100" id="hero-screen">
+    <div class="hero-overlay bg-opacity-95"></div>
     <div class="hero-content text-center">
       <div class="max-w-md">
-        <h1 class="text-5xl font-bold">Poneglyph</h1>
-        <div class="py-6">
-          <input
-            type="text"
-            placeholder="e.g. 177013"
-            class="input input-bordered w-full max-w-xs"
-            v-model="numberCode" />
+        <!--  -->
+        <h1
+          class="text-5xl font-bold text-amber-600 underline decoration-dotted decoration-amber-300">
+          Poneglyph
+        </h1>
+
+        <!--  -->
+        <div class="py-6 space-y-10">
+          <div>
+            <input
+              type="text"
+              placeholder="e.g. 177013"
+              class="input input-bordered rounded-full w-full max-w-xs text-center"
+              v-model="numberCode" />
+
+            <Transition>
+              <p class="text-xs pt-2" v-if="numberCode">
+                Scroll down to see the link
+              </p>
+            </Transition>
+          </div>
 
           <!-- checkboxes for the services -->
           <div class="flex flex-col">
             <!--  -->
             <div class="form-control">
               <label class="label cursor-pointer">
-                <span class="label-text">NHentai</span>
+                <span class="label-text">nHentai</span>
                 <input
                   type="checkbox"
                   class="checkbox"
@@ -203,7 +227,7 @@
     <div class="container mx-auto p-3 pb-6">
       <div class="flex flex-col gap-3">
         <VdisplayOption
-          link-title="NHentai"
+          link-title="nHentai"
           :hyper-link="`https://nhentai.net/g/${numberCode}`"
           v-if="services.nhentai && numberCode" />
 
@@ -264,6 +288,16 @@
       </div>
     </div>
   </section>
-
-  <footer class="footer p-10 bg-base-200 text-neutral-content"></footer>
 </template>
+
+<style scoped>
+  .v-enter-active,
+  .v-leave-active {
+    transition: opacity 0.5s ease;
+  }
+
+  .v-enter-from,
+  .v-leave-to {
+    opacity: 0;
+  }
+</style>
