@@ -293,6 +293,18 @@
       </div>
     </div>
   </section>
+
+  <footer class="footer footer-center text-base-content pt-6 p-3">
+    <div>
+      <a
+        class="link text-xs"
+        href="https://www.flaticon.com/free-icons/ui"
+        title="ui icons"
+        target="_blank">
+        Ui icons created by Soremba - Flaticon
+      </a>
+    </div>
+  </footer>
 </template>
 
 <style scoped>
