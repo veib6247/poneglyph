@@ -39,11 +39,11 @@
       <div class="max-w-md">
         <!--  -->
         <h1
-          class="text-5xl font-bold text-amber-600 underline decoration-dotted decoration-amber-300">
+          class="text-5xl font-bold text-amber-600 underline decoration-amber-300 decoration-dotted">
           Poneglyph
         </h1>
 
-        <p class="text-xs w-64 pt-3 pb-9">
+        <p class="w-64 pt-3 pb-9 text-xs">
           Turn your magic numbers into clickable links that you can open, or
           copy to share.
         </p>
@@ -54,11 +54,11 @@
             <input
               type="text"
               placeholder="e.g. 177013"
-              class="input input-bordered rounded-full w-full max-w-xs text-center"
+              class="input-bordered input w-full max-w-xs rounded-full text-center"
               v-model="numberCode" />
 
             <Transition>
-              <p class="text-xs pt-2" v-if="numberCode">
+              <p class="pt-2 text-xs" v-if="numberCode">
                 Scroll down to see the link
               </p>
             </Transition>
@@ -294,7 +294,7 @@
     </div>
   </section>
 
-  <footer class="footer footer-center text-base-content pt-6 p-3">
+  <footer class="footer footer-center p-3 pt-6 text-base-content">
     <div>
       <a
         class="link text-xs"
